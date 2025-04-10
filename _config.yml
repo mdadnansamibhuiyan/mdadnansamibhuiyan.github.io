@@ -1,11 +1,16 @@
-title: Kamrul Hossain | Cybersecurity Specialist
-description: A dedicated engineering student from Bangladesh, deeply immersed in the realms of computer science and technology with a passion for cybersecurity and ethical hacking.
+title: Adnan Sami Bhuiyan
+description: Bangladeshi Cyber Activist & AI Enthusiast
 baseurl: ""
 url: ""
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
-sass:
-  sass_dir: _sass
-  style: compressed
+  - jekyll-seo-tag
+
+# Custom variables
+social:
+  twitter: adnansami
+  github: adnansami
+  linkedin: adnansami
+  email: contact@adnansami.com
