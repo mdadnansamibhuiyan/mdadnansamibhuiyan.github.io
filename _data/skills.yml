@@ -1,0 +1,31 @@
+- name: Ethical Hacking
+  icon: "🛡️"
+  level: 95
+
+- name: Penetration Testing
+  icon: "🔍"
+  level: 90
+
+- name: Machine Learning
+  icon: "🧠"
+  level: 85
+
+- name: Python
+  icon: "🐍"
+  level: 95
+
+- name: Cybersecurity
+  icon: "🔐"
+  level: 92
+
+- name: AI Development
+  icon: "🤖"
+  level: 88
+
+- name: Cryptography
+  icon: "🔢"
+  level: 90
+
+- name: Network Security
+  icon: "🌐"
+  level: 93
