@@ -1,231 +1,45 @@
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamrul Hossain | Cybersecurity Specialist</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/globe.gl@2.24.0/dist/globe.gl.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap');
-        
-        :root {
-            --primary: #00ff9d;
-            --secondary: #00b8ff;
-            --dark: #0a0a0a;
-            --darker: #050505;
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }} | {{ page.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/images/favicon.ico">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            'mono': ['Fira Code', 'monospace'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
         }
-        
-        body {
-            font-family: 'JetBrains Mono', monospace;
-            background-color: var(--darker);
-            color: white;
-            overflow-x: hidden;
-        }
-        
-        .title-font {
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .terminal {
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
-        }
-        
-        .terminal-header {
-            background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,255,157,0.1) 50%, rgba(0,0,0,0.5) 100%);
-            border-bottom: 1px solid rgba(0, 255, 157, 0.3);
-        }
-        
-        .terminal-body {
-            background: rgba(5, 5, 5, 0.7);
-            height: 400px;
-            overflow-y: auto;
-        }
-        
-        .command-line {
-            color: var(--primary);
-        }
-        
-        .command-output {
-            color: #ccc;
-        }
-        
-        .prompt {
-            color: var(--secondary);
-        }
-        
-        .blink {
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .glow {
-            text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
-        }
-        
-        .card {
-            background: rgba(10, 10, 10, 0.7);
-            border: 1px solid rgba(0, 255, 157, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 255, 157, 0.2);
-            border-color: rgba(0, 255, 157, 0.3);
-        }
-        
-        .btn-hacker {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            color: black;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-hacker:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
-        }
-        
-        .scan-animation {
-            animation: scan 3s linear infinite;
-        }
-        
-        @keyframes scan {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
-        
-        /* Matrix background */
-        .matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-            overflow: hidden;
-        }
-        
-        .matrix-char {
-            position: absolute;
-            color: #00ff41;
-            font-family: 'Courier New', monospace;
-            font-size: 16px;
-            opacity: 0;
-            animation: matrix-fall linear infinite;
-        }
-        
-        @keyframes matrix-fall {
-            0% {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            5% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
-        
-        /* Globe container */
-        #globeViz {
-            width: 100%;
-            height: 500px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-            border: 1px solid rgba(0, 255, 157, 0.2);
-        }
-        
-        /* Contact section */
-        .contact-card {
-            background: rgba(10, 10, 10, 0.7);
-            border: 1px solid rgba(0, 255, 157, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .contact-card:hover {
-            border-color: rgba(0, 255, 157, 0.5);
-            transform: translateY(-3px);
-        }
-        
-        /* Terminal scrollbar */
-        .terminal-body::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        .terminal-body::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.2);
-        }
-        
-        .terminal-body::-webkit-scrollbar-thumb {
-            background: rgba(0, 255, 157, 0.3);
-            border-radius: 4px;
-        }
-        
-        .terminal-body::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 255, 157, 0.5);
-        }
-        
-        /* Timeline */
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--primary);
-            border: 2px solid var(--secondary);
-        }
-        
-        /* Skill bars */
-        .skill-bar {
-            background: rgba(255,255,255,0.1);
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 4px;
-        }
-    </style>
+      }
+    }
+  </script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  {% seo %}
 </head>
