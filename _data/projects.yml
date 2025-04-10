@@ -1,0 +1,29 @@
+- name: Cyber Threat Intelligence Platform
+  description: AI-powered platform for real-time threat detection and analysis
+  icon: "🔐"
+  tags: ["Python", "Machine Learning", "Cybersecurity"]
+
+- name: Ethical Hacking Toolkit
+  description: Comprehensive toolkit for penetration testing and vulnerability assessment
+  icon: "🛡️"
+  tags: ["Python", "Bash", "Cybersecurity"]
+
+- name: AI-Based Malware Detection
+  description: Machine learning model for detecting zero-day malware
+  icon: "🤖"
+  tags: ["Python", "TensorFlow", "AI"]
+
+- name: Secure Communication Protocol
+  description: Quantum-resistant encryption protocol for secure messaging
+  icon: "🔒"
+  tags: ["Cryptography", "C++", "Security"]
+
+- name: Dark Web Monitoring System
+  description: Automated system for monitoring dark web threats
+  icon: "🕵️"
+  tags: ["Python", "Web Scraping", "Security"]
+
+- name: Blockchain Security Audit Tool
+  description: Tool for auditing smart contracts and blockchain security
+  icon: "⛓️"
+  tags: ["Solidity", "Blockchain", "Security"]
