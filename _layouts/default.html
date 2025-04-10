@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include head.html %}
-<body>
-    <!-- Matrix Background -->
-    <div class="matrix-bg" id="matrixBg"></div>
-    
-    {% include navigation.html %}
-    
-    {{ content }}
-    
+  {% include head.html %}
+  <body class="bg-gray-900 text-white font-mono">
+    {% include header.html %}
+    <div class="custom-cursor"></div>
+    <main class="min-h-screen">
+      {{ content }}
+    </main>
     {% include footer.html %}
     {% include scripts.html %}
-</body>
+  </body>
 </html>
